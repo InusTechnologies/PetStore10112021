@@ -1,0 +1,18 @@
+{
+  "id": 1973,
+  "category": {
+    "id": 1,
+    "name": "ada8899"
+  },
+  "name": "snoopy",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 20211126,
+      "name": "sta"
+    }
+  ],
+  "status": "sold"
+}
