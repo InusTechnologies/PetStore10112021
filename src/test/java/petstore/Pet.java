@@ -25,13 +25,14 @@ public class Pet  {
     }
 
     //incluir -create - post
-    @Test  //identifica o método ou função como um teste para TestNG
+    @Test (priority = 1)  //identifica o método ou função como um teste para TestNG
     public void incluirPet() throws IOException {
         String jsonBody = lerJson("db/pet1.json");
 
         //sintaxe gherkin
         //dado - quando - então
         //given- when - then
+
 
         given()//dado
                 .contentType("application/json")//comum em api rest - os mais antigos text/xml
@@ -46,10 +47,35 @@ public class Pet  {
                 .body("status", is("available"))
                 //.body("category.id", contains("1"))
                 //.body("category.id", is("1"))
-                .body("category.name", is("dog"))
+                //.body("category.name", is("dog"))
                 .body("tags.name", contains("sta"))
+                .body("category.name", is("ada8899"))
 
 
         ;
+    }
+    @Test (priority = 2)
+    public void consultarPet(){
+        String petId = "1973";
+
+        String token =
+        given()
+                .contentType("applicatio/json")
+                .log().all()
+        .when()
+                .get(uri + "/" + petId)
+
+        .then()
+                .log().all()
+                .statusCode(200)
+                .body("name", is("snoopy"))
+               // .body("category.name", is("dog"))
+                .body("status", is("available"))
+
+                .extract()
+                .path("category.name");
+
+        System.out.println("o token é " + token);
+
     }
 }
