@@ -78,7 +78,7 @@ public class Pet  {
         System.out.println("o token é " + token);
 
             }
-            @Test
+            @Test(priority = 3)
             public void alterarPet() throws IOException {
                 String jsonBody = lerJson("db/pet2.json");
 
